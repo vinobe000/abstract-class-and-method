@@ -1,0 +1,36 @@
+
+In [50]: from abc import ABC
+
+In [51]: from abc import abstractmethod
+
+In [52]: class college(ABC):
+    ...:     @abstractmethod
+    ...:     def displaycollege(self):
+    ...:         pass
+    ...:
+
+In [53]: class teacher(college):
+    ...:     def __init__(self,name,age,salary):
+    ...:         self.name=name
+    ...:         self.age=age
+    ...:         self.salary=salary
+    ...:     def displaycollege(self):
+    ...:         print(self.salary)
+    ...:
+
+In [54]: obj=teacher("vinoth",28,50000)
+
+In [55]: obj.displaycollege()
+50000
+
+In [56]: college.__dict__
+Out[56]:
+mappingproxy({'__module__': '__main__',
+              'displaycollege': <function __main__.college.displaycollege(self)>,
+              '__dict__': <attribute '__dict__' of 'college' objects>,
+              '__weakref__': <attribute '__weakref__' of 'college' objects>,
+              '__doc__': None,
+              '__abstractmethods__': frozenset({'displaycollege'}),
+              '_abc_impl': <_abc_data at 0x898b10e150>})
+
+In [57]:
