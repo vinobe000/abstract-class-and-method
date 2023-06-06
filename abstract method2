@@ -1,0 +1,113 @@
+
+In [50]: from abc import ABC
+
+In [51]: from abc import abstractmethod
+
+In [52]: class college(ABC):
+    ...:     @abstractmethod
+    ...:     def displaycollege(self):
+    ...:         pass
+    ...:
+
+In [53]: class teacher(college):
+    ...:     def __init__(self,name,age,salary):
+    ...:         self.name=name
+    ...:         self.age=age
+    ...:         self.salary=salary
+    ...:     def displaycollege(self):
+    ...:         print(self.salary)
+    ...:
+
+In [54]: obj=teacher("vinoth",28,50000)
+
+In [55]: obj.displaycollege()
+50000
+
+In [56]: college.__dict__
+Out[56]:
+mappingproxy({'__module__': '__main__',
+              'displaycollege': <function __main__.college.displaycollege(self)>,
+              '__dict__': <attribute '__dict__' of 'college' objects>,
+              '__weakref__': <attribute '__weakref__' of 'college' objects>,
+              '__doc__': None,
+              '__abstractmethods__': frozenset({'displaycollege'}),
+              '_abc_impl': <_abc_data at 0x898b10e150>})
+
+In [57]: class college(ABC):
+    ...:     def displaycollege(self):
+    ...:         pass
+    ...:
+
+In [58]: class teacher(college):
+    ...:     def __init__(self,name,age,salary):
+    ...:         self.name=name
+    ...:         self.age=age
+    ...:         self.salary=salary
+    ...:     def displaycollege(self):
+    ...:         print(self.salary)
+    ...:
+
+In [59]: obj=teacher("vinoth",28,50000)
+
+In [60]: obj.displaycollege()
+50000
+
+In [61]: college.__dict__
+Out[61]:
+mappingproxy({'__module__': '__main__',
+              'displaycollege': <function __main__.college.displaycollege(self)>,
+              '__dict__': <attribute '__dict__' of 'college' objects>,
+              '__weakref__': <attribute '__weakref__' of 'college' objects>,
+              '__doc__': None,
+              '__abstractmethods__': frozenset(),
+              '_abc_impl': <_abc_data at 0x898a217870>})
+
+In [62]: class teacher(college):
+    ...:     def __init__(self,name,age,salary):
+    ...:         self.name=name
+    ...:         self.age=age
+    ...:         self.salary=salary
+    ...:     def displaycollege(self):
+    ...:         pass
+    ...:
+
+In [63]: class students(teacher):
+    ...:     def displaycollege(self):
+    ...:         print(self.salary)
+    ...:         print(self.age)
+    ...:
+
+In [65]: obj=students("vinoth",28,100000)
+
+In [66]: obj.displaycollege()
+100000
+28
+
+In [67]: students.__dict__
+Out[67]:
+mappingproxy({'__module__': '__main__',
+              'displaycollege': <function __main__.students.displaycollege(self)>,
+              '__doc__': None,
+              '__abstractmethods__': frozenset(),
+              '_abc_impl': <_abc_data at 0x898a218c90>})
+
+In [68]: college.__dict__
+Out[68]:
+mappingproxy({'__module__': '__main__',
+              'displaycollege': <function __main__.college.displaycollege(self)>,
+              '__dict__': <attribute '__dict__' of 'college' objects>,
+              '__weakref__': <attribute '__weakref__' of 'college' objects>,
+              '__doc__': None,
+              '__abstractmethods__': frozenset(),
+              '_abc_impl': <_abc_data at 0x898a217870>})
+
+In [69]: teacher.__dict__
+Out[69]:
+mappingproxy({'__module__': '__main__',
+              '__init__': <function __main__.teacher.__init__(self, name, age, salary)>,
+              'displaycollege': <function __main__.teacher.displaycollege(self)>,
+              '__doc__': None,
+              '__abstractmethods__': frozenset(),
+              '_abc_impl': <_abc_data at 0x898a1fc210>})
+
+In [70]:
